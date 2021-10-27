@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\AuthUserRegistered;
+use App\Events\UserForgotPasswordEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class AuthUserRegisteredListerner
+class SendForgotPasswordEmail
 {
     /**
      * Create the event listener.
@@ -21,11 +21,11 @@ class AuthUserRegisteredListerner
     /**
      * Handle the event.
      *
-     * @param  AuthUserRegistered  $event
+     * @param  UserForgotPasswordEvent  $event
      * @return void
      */
-    public function handle(AuthUserRegistered $event)
+    public function handle(UserForgotPasswordEvent $event)
     {
-        //$event->user
+        //
     }
 }

@@ -1,0 +1,1 @@
+<p>Hi, your password has been updated</p>

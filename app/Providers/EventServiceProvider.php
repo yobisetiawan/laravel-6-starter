@@ -17,15 +17,15 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ], 
+        'App\Events\UserRegisterEvent' => [
+            'App\Listeners\SendVerifyEmail',
         ],
-        'App\Events\AuthUserRegistered' => [
-            'App\Listeners\AuthUserRegisteredListerner',
+        'App\Events\UserForgotPasswordEvent' => [
+            'App\Listeners\SendForgotPasswordEmail',
         ],
-        'App\Events\AuthUserFogotPasword' => [
-            'App\Listeners\AuthUserFogotPaswordListerner',
-        ],
-        'App\Events\AuthUserSuccessResetPasword' => [
-            'App\Listeners\AuthUserSuccessResetPaswordListerner',
+        'App\Events\UserResetPasswordEvent' => [
+            'App\Listeners\SendResetPasswordEmail',
         ],
     ];
 

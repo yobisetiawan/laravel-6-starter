@@ -1,0 +1,1 @@
+<p>Hi, Click <a href="#">Here</a> to reset password</p>

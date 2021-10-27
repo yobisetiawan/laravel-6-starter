@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\AuthUserSuccessResetPasword;
+use App\Events\UserResetPasswordEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class AuthUserSuccessResetPaswordListerner
+class SendResetPasswordEmail
 {
     /**
      * Create the event listener.
@@ -21,11 +21,11 @@ class AuthUserSuccessResetPaswordListerner
     /**
      * Handle the event.
      *
-     * @param  AuthUserSuccessResetPasword  $event
+     * @param  UserResetPasswordEvent  $event
      * @return void
      */
-    public function handle(AuthUserSuccessResetPasword $event)
+    public function handle(UserResetPasswordEvent $event)
     {
-        //$event->user
+        //
     }
 }
