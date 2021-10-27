@@ -66,19 +66,21 @@ class BaseAuth extends Controller
 
     public function register(AuthRegister $request)
     {
-        $user = new User();
+        return $this->DBSafe(function () use ($request) {
+            $user = new User();
 
-        $data = $request->validated();
+            $data = $request->validated();
 
-        $data = $this->__beforeFillRegister($data);
+            $data = $this->__beforeFillRegister($data);
 
-        $user->fill($data);
+            $user->fill($data);
 
-        $user->save();
+            $user->save();
 
-        event(new UserRegisterEvent($user));
+            event(new UserRegisterEvent($user));
 
-        return $this->__successRegister($user);
+            return $this->__successRegister($user);
+        });
     }
 
     public function __successRegister($user)
