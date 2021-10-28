@@ -2,9 +2,9 @@
 
 namespace App\Http\Modules;
 
-use App\Events\AuthUserFogotPasword;
-use App\Events\AuthUserRegistered;
-use App\Events\AuthUserSuccessResetPasword;
+use App\Events\UserForgotPasswordEvent;
+use App\Events\UserRegisterEvent;
+use App\Events\UserResetPasswordEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthForgotPassword;
 use App\Http\Requests\AuthLogin;
@@ -76,7 +76,7 @@ class BaseAuth extends Controller
 
         $user->save();
 
-        event(new AuthUserRegistered($user));
+        event(new UserRegisterEvent($user));
 
         return $this->__successRegister($user);
     }
@@ -103,7 +103,7 @@ class BaseAuth extends Controller
         $user = $query->first();
 
         if ($user) {
-            event(new AuthUserFogotPasword($user));
+            event(new UserForgotPasswordEvent($user));
             return $this->__successForgotPassword($user);
         }
 
@@ -135,7 +135,7 @@ class BaseAuth extends Controller
         $user = $query->first();
 
         if ($user) {
-            event(new AuthUserSuccessResetPasword($user));
+            event(new UserResetPasswordEvent($user));
             return $this->__successResetPassword($user);
         }
 

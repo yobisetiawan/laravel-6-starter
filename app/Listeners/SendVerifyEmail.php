@@ -2,11 +2,13 @@
 
 namespace App\Listeners;
 
-use App\Events\AuthUserFogotPasword;
+use App\Events\UserRegisterEvent;
+use App\Mail\UserVerifyMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Mail;
 
-class AuthUserFogotPaswordListerner
+class SendVerifyEmail
 {
     /**
      * Create the event listener.
@@ -21,11 +23,11 @@ class AuthUserFogotPaswordListerner
     /**
      * Handle the event.
      *
-     * @param  AuthUserFogotPasword  $event
+     * @param  UserRegisterEvent  $event
      * @return void
      */
-    public function handle(AuthUserFogotPasword $event)
+    public function handle(UserRegisterEvent $event)
     {
-        //$event->user
+        Mail::to($event->user)->send(new UserVerifyMail());
     }
 }
