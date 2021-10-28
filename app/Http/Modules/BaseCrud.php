@@ -3,10 +3,16 @@
 namespace App\Http\Modules;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CountryRequest;
+use App\Http\Traits\HasCrudHooks;
+use App\Http\Traits\HasCrudPrepareQuery;
+use App\Http\Traits\HasCrudSuccessResult;
 use Illuminate\Http\Request;
 
 class BaseCrud extends Controller
 {
+
+    use HasCrudHooks, HasCrudPrepareQuery, HasCrudSuccessResult;
 
     public $model;
 
@@ -17,6 +23,10 @@ class BaseCrud extends Controller
     public $searchAble = [];
 
     public $modelKey = 'id';
+
+    public $storeValidator;
+
+    public $updateValidator;
 
 
     public function index(Request $request)
@@ -32,94 +42,95 @@ class BaseCrud extends Controller
         return $this->resource::collection($query);
     }
 
-    public function __prepareQuerySearchAbleList($query, $request)
-    {
-        if ($q = $request->query('q')) {
-
-            $query->where(function ($qq) use ($q) {
-                foreach ($this->searchAble as $v) {
-                    $qq->orWhereRaw('LOWER(' . $v . ') like ?', ['%' . strtolower($q) . '%']);
-                }
-            });
-        }
-
-        return $query;
-    }
-
-    public function __prepareQueryList($query)
-    {
-        return $query;
-    }
 
     public function store(Request $request)
     {
-        return $this->__successStore();
+        return $this->DBSafe(
+            function () {
+                $req = app($this->storeValidator);
+
+                $this->__beforeStored();
+
+                $dt = new $this->model();
+
+                $data = $req->validated();
+
+                $data = $this->__prepareDataStore($data);
+
+                $dt->fill($data);
+
+                $dt->save();
+
+                $this->row = $dt;
+
+                $this->__afterStored();
+
+                return $this->__successStore();
+            }
+        );
     }
+
 
     public function show($id)
     {
         $query = $this->model::where($this->modelKey, $id);
 
-        $this->__prepareQueryShow($query);
+        $this->__prepareQueryRowShow($query);
 
         $this->row = $query->firstOrFail();
 
         return new $this->resource($this->row);
     }
 
-    public function __prepareQueryShow($query)
-    {
-        return $query;
-    }
-
-
     public function update(Request $request, $id)
     {
-        $query = $this->model::where($this->modelKey, $id);
-        $this->__prepareQueryUpdate($query);
-        $this->row = $query->firstOrFail();
+        return $this->DBSafe(
+            function () use ($id) {
+                $req = app($this->updateValidator);
 
-        return $this->__successUpdate();
+                $query = $this->model::where($this->modelKey, $id);
+
+                $this->__prepareQueryRowUpdate($query);
+
+                $this->row = $query->firstOrFail();
+
+                $this->__beforeUpdated();
+
+                $data = $req->validated();
+
+                $data = $this->__prepareDataUpdated($data);
+
+                $this->row->fill($data);
+
+                $this->row->save();
+
+                $this->__afterUpdated();
+
+                return $this->__successUpdate();
+            }
+        );
     }
 
-    public function __prepareQueryUpdate($query)
-    {
-        return $query;
-    }
-
-    public function __successUpdate()
-    {
-        return $this->__success();
-    }
 
     public function destroy($id)
     {
-        return $this->DBSafe(function () use ($id) {
+        return $this->DBSafe(
+            function () use ($id) {
 
-            $query = $this->model::where($this->modelKey, $id);
+                $query = $this->model::where($this->modelKey, $id);
 
-            $this->__prepareQueryDestroy($query);
+                $this->__prepareQueryRowDestroy($query);
 
-            $this->row = $query->firstOrFail();
+                $this->row = $query->firstOrFail();
 
-            $this->row->delete();
+                $this->__beforeDestroyed();
 
-            return $this->__successDestroy();
-        });
-    }
+                $this->row->delete();
 
-    public function __prepareQueryDestroy($query)
-    {
-        return $query;
-    }
+                $this->__afterDestroyed();
 
-    public function __successDestroy()
-    {
-        return $this->__success();
-    }
-
-    public function __success()
-    {
-        return ['success' => true];
+                return $this->__successDestroy();
+            }
+        );
     }
 }
