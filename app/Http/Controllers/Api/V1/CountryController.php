@@ -6,7 +6,6 @@ use App\Http\Modules\BaseCrud;
 use App\Http\Requests\CountryRequest;
 use App\Http\Resources\Country as ResourcesCountry;
 use App\Models\Country;
-use Illuminate\Http\Request;
 
 class CountryController extends BaseCrud
 {
