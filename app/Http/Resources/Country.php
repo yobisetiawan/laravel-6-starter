@@ -17,6 +17,7 @@ class Country extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'provinces' => Province::collection($this->whenLoaded('provinces')),
         ];
     }
 }

@@ -28,11 +28,19 @@ class BaseCrud extends Controller
 
     public $updateValidator;
 
+    public $relationList=[];
+    
+    public $relationShow=[];
+
+    public $lockRelationParam = true;
+
 
     public function index(Request $request)
     {
         $query = $this->model::query();
 
+        $this->__prepareQueryRelationList($query);
+        
         $this->__prepareQueryList($query);
 
         $this->__prepareQuerySearchAbleList($query, $request);
@@ -74,6 +82,8 @@ class BaseCrud extends Controller
     public function show($id)
     {
         $query = $this->model::where($this->modelKey, $id);
+
+        $this->__prepareQueryRelationShow($query);
 
         $this->__prepareQueryRowShow($query);
 
