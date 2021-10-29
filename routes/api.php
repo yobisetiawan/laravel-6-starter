@@ -22,6 +22,7 @@ Route::prefix('v1')->namespace('Api\V1')->group(function () {
 
 
     Route::apiResource('countries', 'CountryController');
+    Route::apiResource('provinces', 'ProvinceController');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
