@@ -19,6 +19,9 @@ Route::prefix('v1')->namespace('Api\V1')->group(function () {
     Route::post('/auth/login', 'AuthController@login');
     Route::get('/auth/logout', 'AuthController@logout');
     Route::post('/auth/register', 'AuthController@register');
+
+
+    Route::apiResource('countries', 'CountryController');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
