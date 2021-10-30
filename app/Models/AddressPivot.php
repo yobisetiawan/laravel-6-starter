@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Province extends Model 
+class AddressPivot extends Model 
 {
 
-    protected $table = 'provinces';
+    protected $table = 'address_pivots';
     public $timestamps = true;
 
 }

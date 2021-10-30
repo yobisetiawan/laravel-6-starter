@@ -4,13 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Country extends Model 
 {
-    protected $fillable = ['title'];
 
+    protected $table = 'countries';
+    public $timestamps = true;
 
-    public function provinces()
-    {
-        return $this->hasMany(Province::class);
-    }
 }

@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Province extends Model 
+class Currency extends Model
 {
 
-    protected $table = 'provinces';
+    protected $table = 'currencies';
     public $timestamps = true;
-
 }
