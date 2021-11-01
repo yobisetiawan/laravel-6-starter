@@ -24,7 +24,31 @@ class AuthLogin extends FormRequest
     public function rules()
     {
         return [
+            /**
+             * @OA\Parameter(
+             *   parameter="AuthLogin_email",
+             *   name="email",
+             *   @OA\Schema(
+             *     type="string"
+             *   ),
+             *   in="query",
+             *   required=true
+             * )
+             */
+
             'email' => 'required|email',
+
+            /**
+             * @OA\Parameter(
+             *   parameter="AuthLogin_password",
+             *   name="password",
+             *   @OA\Schema(
+             *     type="string"
+             *   ),
+             *   in="query",
+             *   required=true
+             * )
+             */
             'password' => 'required',
         ];
     }

@@ -24,6 +24,18 @@ class CountryRequest extends FormRequest
     public function rules()
     {
         return [
+            /**
+             * @OA\Parameter(
+             *   parameter="CountryRequest_title",
+             *   name="title",
+             *   @OA\Schema(
+             *     type="string"
+             *   ),
+             *   in="query",
+             *   required=true
+             * )
+             */
+
             'title' => 'required'
         ];
     }
