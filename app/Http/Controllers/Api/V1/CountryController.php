@@ -19,6 +19,8 @@ class CountryController extends BaseCrud
     public $storeValidator = CountryRequest::class;
 
     public $updateValidator = CountryRequest::class;
+    
+    public $relationShow = ['provinces'];
 
 
 }

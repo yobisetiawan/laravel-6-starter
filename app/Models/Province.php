@@ -8,4 +8,9 @@ class Province extends Model
 {
     //
     protected $fillable = ['title', 'country_id'];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }
