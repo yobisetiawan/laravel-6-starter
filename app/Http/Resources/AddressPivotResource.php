@@ -18,8 +18,13 @@ class AddressPivotResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'user_id' => $this->user_id,
+            'address_id' => $this->address_id,
+            'relationship' => $this->relationship,
+            'name' => $this->name,
+            'description' => $this->description,
+            'is_active' => $this->is_active,
+            'is_primary' => $this->is_primary,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

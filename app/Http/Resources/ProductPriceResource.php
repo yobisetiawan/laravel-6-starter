@@ -18,8 +18,16 @@ class ProductPriceResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'product_id' => $this->product_id,
+            'seller_id' => $this->seller_id,
+            'currency_code' => $this->currency_code,
+            'is_active' => $this->is_active,
+            'published_at' => $this->published_at,
+            'depublished_at' => $this->depublished_at,
+            'is_published' => $this->is_published,
+            'price' => $this->price,
+            'min_quantity' => $this->min_quantity,
+            'max_quantity' => $this->max_quantity,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

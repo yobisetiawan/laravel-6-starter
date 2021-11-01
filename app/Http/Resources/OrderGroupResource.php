@@ -18,8 +18,7 @@ class OrderGroupResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'customer_id' => $this->customer_id,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

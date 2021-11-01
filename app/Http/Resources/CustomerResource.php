@@ -18,8 +18,13 @@ class CustomerResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'name' => $this->name,
+            'gender' => $this->gender,
+            'dob' => $this->dob,
+            'pob' => $this->pob,
+            'user_id' => $this->user_id,
+            'number' => $this->number,
+            'is_active' => $this->is_active,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

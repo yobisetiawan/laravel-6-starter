@@ -18,8 +18,17 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'category_id' => $this->category_id,
+            'parent_id' => $this->parent_id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'unit_id' => $this->unit_id,
+            'weight' => $this->weight,
+            'data' => $this->data,
+            'is_active' => $this->is_active,
+            'published_at' => $this->published_at,
+            'depublished_at' => $this->depublished_at,
+            'published' => $this->published,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

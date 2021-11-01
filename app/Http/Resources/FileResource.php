@@ -18,8 +18,11 @@ class FileResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'url_real' => $this->url_real,
+            'url' => $this->url,
+            'extension' => $this->extension,
+            'size' => $this->size,
+            'storage' => $this->storage,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

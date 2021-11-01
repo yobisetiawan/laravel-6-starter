@@ -18,8 +18,15 @@ class MetricRuleResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'parent_id' => $this->parent_id,
+            'prototype_id' => $this->prototype_id,
+            'metric_id' => $this->metric_id,
+            'operator' => $this->operator,
+            'value' => $this->value,
+            'index' => $this->index,
+            'is_and' => $this->is_and,
+            'is_active' => $this->is_active,
+            'remarks' => $this->remarks,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

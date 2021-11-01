@@ -18,8 +18,20 @@ class OrderItemResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'product_id' => $this->product_id,
+            'order_id' => $this->order_id,
+            'quantity' => $this->quantity,
+            'category_id' => $this->category_id,
+            'category_title' => $this->category_title,
+            'title' => $this->title,
+            'description' => $this->description,
+            'total' => $this->total,
+            'price' => $this->price,
+            'unit_abbv' => $this->unit_abbv,
+            'unit_symbol' => $this->unit_symbol,
+            'remarks' => $this->remarks,
+            'weight' => $this->weight,
+            'data' => $this->data, 
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

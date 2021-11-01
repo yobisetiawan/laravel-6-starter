@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Resource extends JsonResource
+class PrescriptionItemResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +18,13 @@ class Resource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'prescription_id' => $this->prescription_id,
+            'product_id' => $this->product_id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'dosage' => $this->dosage,
+            'quantity' => $this->quantity,
+            'is_regulated' => $this->is_regulated,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

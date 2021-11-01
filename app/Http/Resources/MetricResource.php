@@ -18,8 +18,10 @@ class MetricResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'title' => $this->title,
+            'description' => $this->description,
+            'index' => $this->index,
+            'data' => $this->data,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

@@ -16,9 +16,17 @@ class RegencyResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            //'uuid' => $this->uuid,
+
             'name' => $this->name,
             'type' => $this->type,
             'province_id' => $this->province_id,
+
+
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'created_by' => $this->created_by,
+            'updated_by' => $this->updated_by,
         ];
     }
 }

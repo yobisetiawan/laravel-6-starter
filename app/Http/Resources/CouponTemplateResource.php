@@ -18,8 +18,15 @@ class CouponTemplateResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'code' => $this->code,
+            'title' => $this->title,
+            'description' => $this->description,
+            'discount_percentage' => $this->discount_percentage,
+            'discount_amount' => $this->discount_amount,
+            'discount_max' => $this->discount_max,
+            'is_active' => $this->is_active,
+            'expired_at' => $this->expired_at,
+            'valid_at' => $this->valid_at,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

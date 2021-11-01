@@ -17,9 +17,13 @@ class ActivityLogResource extends JsonResource
         return [
             'id' => $this->id,
             'uuid' => $this->uuid,
-            
-            
 
+            'date' => $this->date,
+            'activity' => $this->activity,
+            'doctor_id' => $this->doctor_id,
+            'customer_id' => $this->customer_id,
+            'patient_id' => $this->patient_id,
+            'remarks' => $this->remarks,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

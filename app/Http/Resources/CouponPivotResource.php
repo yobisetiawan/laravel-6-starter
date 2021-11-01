@@ -18,8 +18,12 @@ class CouponPivotResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'coupon_id' => $this->coupon_id,
+            'relationship' => $this->relationship,
+            'ref_id' => $this->ref_id,
+            'ref_table' => $this->ref_table,
+            'ref_model' => $this->ref_model,
+            'remarks' => $this->remarks,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

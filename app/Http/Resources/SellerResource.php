@@ -18,8 +18,14 @@ class SellerResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'name' => $this->name,
+            'parent_id' => $this->parent_id,
+            'user_id' => $this->user_id,
+            'number' => $this->number,
+            'regency_id' => $this->regency_id,
+            'index' => $this->index,
+            'is_active' => $this->is_active,
+            'phone' => $this->phone,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

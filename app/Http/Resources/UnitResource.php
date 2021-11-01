@@ -18,8 +18,10 @@ class UnitResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'title' => $this->title,
+            'abbv' => $this->abbv,
+            'symbol' => $this->symbol,
+            'description' => $this->description,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

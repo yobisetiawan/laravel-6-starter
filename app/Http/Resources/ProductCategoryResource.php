@@ -18,8 +18,11 @@ class ProductCategoryResource extends JsonResource
             'id' => $this->id,
             'uuid' => $this->uuid,
 
-
-
+            'title' => $this->title,
+            'description' => $this->description,
+            'parent_id' => $this->parent_id,
+            'is_active' => $this->is_active,
+            'index' => $this->index,
 
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
