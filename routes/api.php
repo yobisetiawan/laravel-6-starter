@@ -24,6 +24,7 @@ Route::prefix('v1')->namespace('Api\V1')->group(function () {
     Route::middleware('auth:api')->group(function () {
         Route::apiResource('countries', 'CountryController');
         Route::apiResource('provinces', 'ProvinceController');
+        Route::apiResource('regencies', 'RegencyController');
     });
 });
 

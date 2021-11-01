@@ -102,7 +102,10 @@
                 ],
                 "parameters": [
                     {
-                        "$ref": "#/components/parameters/CountryRequest_title"
+                        "$ref": "#/components/parameters/CountryRequest_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/CountryRequest_code"
                     }
                 ],
                 "responses": {
@@ -157,7 +160,10 @@
                         "$ref": "#/components/parameters/OA_id"
                     },
                     {
-                        "$ref": "#/components/parameters/CountryRequest_title"
+                        "$ref": "#/components/parameters/CountryRequest_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/CountryRequest_code"
                     }
                 ],
                 "responses": {
@@ -229,10 +235,10 @@
                 ],
                 "parameters": [
                     {
-                        "$ref": "#/components/parameters/ProvinceRequest_title"
+                        "$ref": "#/components/parameters/ProvinceRequest_name"
                     },
                     {
-                        "$ref": "#/components/parameters/ProvinceRequest_country_id"
+                        "$ref": "#/components/parameters/ProvinceRequest_parent_id"
                     }
                 ],
                 "responses": {
@@ -287,10 +293,10 @@
                         "$ref": "#/components/parameters/OA_id"
                     },
                     {
-                        "$ref": "#/components/parameters/ProvinceRequest_title"
+                        "$ref": "#/components/parameters/ProvinceRequest_name"
                     },
                     {
-                        "$ref": "#/components/parameters/ProvinceRequest_country_id"
+                        "$ref": "#/components/parameters/ProvinceRequest_parent_id"
                     }
                 ],
                 "responses": {
@@ -312,6 +318,139 @@
             "delete": {
                 "tags": [
                     "Province"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/regencies": {
+            "get": {
+                "tags": [
+                    "Regency"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Regency"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/RegencyRequest_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/RegencyRequest_parent_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/regencies/{id}": {
+            "get": {
+                "tags": [
+                    "Regency"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Regency"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/OA_id"
+                    },
+                    {
+                        "$ref": "#/components/parameters/RegencyRequest_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/RegencyRequest_parent_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Regency"
                 ],
                 "parameters": [
                     {
@@ -386,24 +525,48 @@
                     "type": "string"
                 }
             },
-            "CountryRequest_title": {
-                "name": "title",
+            "CountryRequest_name": {
+                "name": "name",
                 "in": "query",
                 "required": true,
                 "schema": {
                     "type": "string"
                 }
             },
-            "ProvinceRequest_title": {
-                "name": "title",
+            "CountryRequest_code": {
+                "name": "code",
                 "in": "query",
                 "required": true,
                 "schema": {
                     "type": "string"
                 }
             },
-            "ProvinceRequest_country_id": {
-                "name": "country_id",
+            "ProvinceRequest_name": {
+                "name": "name",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "ProvinceRequest_parent_id": {
+                "name": "parent_id",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "RegencyRequest_name": {
+                "name": "name",
+                "in": "query",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "RegencyRequest_parent_id": {
+                "name": "parent_id",
                 "in": "query",
                 "required": true,
                 "schema": {

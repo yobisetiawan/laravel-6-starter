@@ -19,6 +19,7 @@ use Illuminate\Support\Str;
 
 $factory->define(Country::class, function (Faker $faker) {
     return [
-        'title' => $faker->name,
+        'name' => $faker->name,
+        'code' => $faker->countryCode()
     ];
 });

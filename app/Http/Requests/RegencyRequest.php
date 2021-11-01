@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CountryRequest extends FormRequest
+class RegencyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class CountryRequest extends FormRequest
         return [
             /**
              * @OA\Parameter(
-             *   parameter="CountryRequest_name",
+             *   parameter="RegencyRequest_name",
              *   name="name",
              *   @OA\Schema(
              *     type="string"
@@ -35,12 +35,12 @@ class CountryRequest extends FormRequest
              *   required=true
              * )
              */
-
             'name' => 'required',
+
             /**
              * @OA\Parameter(
-             *   parameter="CountryRequest_code",
-             *   name="code",
+             *   parameter="RegencyRequest_parent_id",
+             *   name="parent_id",
              *   @OA\Schema(
              *     type="string"
              *   ),
@@ -48,8 +48,7 @@ class CountryRequest extends FormRequest
              *   required=true
              * )
              */
-
-            'code' => 'required',
+            'parent_id' => 'required',
         ];
     }
 }

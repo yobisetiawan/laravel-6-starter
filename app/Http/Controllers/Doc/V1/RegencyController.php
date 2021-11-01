@@ -2,18 +2,18 @@
 
 /**
  * @OA\Get(
- * path="/api/v1/countries",
+ * path="/api/v1/regencies",
  * security={{"bearerAuth":{}}},
- * tags={"Country"}, 
+ * tags={"Regency"}, 
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
  */
 
 /**
  * @OA\Get(
- * path="/api/v1/countries/{id}",
+ * path="/api/v1/regencies/{id}",
  * security={{"bearerAuth":{}}},
- * tags={"Country"},
+ * tags={"Regency"},
  *   @OA\Parameter(ref="#/components/parameters/OA_id"), 
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
@@ -21,32 +21,32 @@
 
 /**
  * @OA\POST(
- * path="/api/v1/countries",
+ * path="/api/v1/regencies",
  * security={{"bearerAuth":{}}},
- * tags={"Country"},
- *   @OA\Parameter(ref="#/components/parameters/CountryRequest_name"), 
- *   @OA\Parameter(ref="#/components/parameters/CountryRequest_code"), 
+ * tags={"Regency"},
+ *   @OA\Parameter(ref="#/components/parameters/RegencyRequest_name"),
+ *   @OA\Parameter(ref="#/components/parameters/RegencyRequest_parent_id"), 
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
  */
 
 /**
  * @OA\PUT(
- * path="/api/v1/countries/{id}",
+ * path="/api/v1/regencies/{id}",
  * security={{"bearerAuth":{}}},
- * tags={"Country"},
+ * tags={"Regency"},
  *   @OA\Parameter(ref="#/components/parameters/OA_id"), 
- *   @OA\Parameter(ref="#/components/parameters/CountryRequest_name"), 
- *   @OA\Parameter(ref="#/components/parameters/CountryRequest_code"), 
+ *   @OA\Parameter(ref="#/components/parameters/RegencyRequest_name"), 
+ *   @OA\Parameter(ref="#/components/parameters/RegencyRequest_parent_id"), 
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
  */
 
- /**
+/**
  * @OA\DELETE(
- * path="/api/v1/countries/{id}",
+ * path="/api/v1/regencies/{id}",
  * security={{"bearerAuth":{}}},
- * tags={"Country"},
+ * tags={"Regency"},
  *   @OA\Parameter(ref="#/components/parameters/OA_id"), 
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )

@@ -26,8 +26,8 @@ class ProvinceRequest extends FormRequest
         return [
             /**
              * @OA\Parameter(
-             *   parameter="ProvinceRequest_title",
-             *   name="title",
+             *   parameter="ProvinceRequest_name",
+             *   name="name",
              *   @OA\Schema(
              *     type="string"
              *   ),
@@ -35,12 +35,12 @@ class ProvinceRequest extends FormRequest
              *   required=true
              * )
              */
-            'title' => 'required',
+            'name' => 'required',
 
             /**
              * @OA\Parameter(
-             *   parameter="ProvinceRequest_country_id",
-             *   name="country_id",
+             *   parameter="ProvinceRequest_parent_id",
+             *   name="parent_id",
              *   @OA\Schema(
              *     type="string"
              *   ),
@@ -48,7 +48,7 @@ class ProvinceRequest extends FormRequest
              *   required=true
              * )
              */
-            'country_id' => 'required',
+            'parent_id' => 'required',
         ];
     }
 }

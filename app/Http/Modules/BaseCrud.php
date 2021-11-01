@@ -4,9 +4,9 @@ namespace App\Http\Modules;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CountryRequest;
-use App\Http\Traits\HasCrudHooks;
-use App\Http\Traits\HasCrudPrepareQuery;
-use App\Http\Traits\HasCrudSuccessResult;
+use App\Traits\HasCrudHooks;
+use App\Traits\HasCrudPrepareQuery;
+use App\Traits\HasCrudSuccessResult;
 use Illuminate\Http\Request;
 
 class BaseCrud extends Controller

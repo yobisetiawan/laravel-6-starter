@@ -24,8 +24,8 @@
  * path="/api/v1/provinces",
  * security={{"bearerAuth":{}}},
  * tags={"Province"},
- *   @OA\Parameter(ref="#/components/parameters/ProvinceRequest_title"),
- *   @OA\Parameter(ref="#/components/parameters/ProvinceRequest_country_id"), 
+ *   @OA\Parameter(ref="#/components/parameters/ProvinceRequest_name"),
+ *   @OA\Parameter(ref="#/components/parameters/ProvinceRequest_parent_id"), 
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
  */
@@ -36,8 +36,8 @@
  * security={{"bearerAuth":{}}},
  * tags={"Province"},
  *   @OA\Parameter(ref="#/components/parameters/OA_id"), 
- *   @OA\Parameter(ref="#/components/parameters/ProvinceRequest_title"), 
- *   @OA\Parameter(ref="#/components/parameters/ProvinceRequest_country_id"), 
+ *   @OA\Parameter(ref="#/components/parameters/ProvinceRequest_name"), 
+ *   @OA\Parameter(ref="#/components/parameters/ProvinceRequest_parent_id"), 
  * @OA\Response(response=200, description="", @OA\JsonContent()),
  * )
  */
