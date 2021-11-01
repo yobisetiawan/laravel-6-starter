@@ -23,10 +23,22 @@ trait HasCrudPrepareQuery
                     }
                 }
             });
-            
         }
 
         return $query;
+    }
+
+    public function __prepareQueryListType($query, $request)
+    {
+        return $request->query('type') == 'pagination' ? $query->paginate($this->paginationPerPage) : $query->get();
+    }
+
+    public function __prepareListPaginationAppend($query, $request)
+    {
+        if (!empty($request)) {
+            //
+        }
+        return  $query;
     }
 
     public function __prepareQueryRelationList($query)

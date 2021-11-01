@@ -34,6 +34,8 @@ class BaseCrud extends Controller
 
     public $lockRelationParam = true;
 
+    public $paginationPerPage = 10;
+
 
     public function index(Request $request)
     {
@@ -45,9 +47,9 @@ class BaseCrud extends Controller
 
         $this->__prepareQuerySearchAbleList($query, $request);
 
-        $query = $request->query('type') == 'pagination' ? $query->paginate() : $query->get();
+        $query = $this->__prepareQueryListType($query, $request); 
 
-        return $this->resource::collection($query);
+        return $this->__successList($query);
     }
 
 
@@ -87,9 +89,9 @@ class BaseCrud extends Controller
 
         $this->__prepareQueryRowShow($query);
 
-        $this->row = $query->firstOrFail();
+        $this->row = $query->firstOrFail(); 
 
-        return new $this->resource($this->row);
+        return $this->__successShow();
     }
 
     public function update(Request $request, $id)

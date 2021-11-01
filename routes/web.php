@@ -19,4 +19,6 @@ Route::group(['namespace' => 'Web'], function () {
 
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::resource('countries', 'CountryController');
 });
